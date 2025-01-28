@@ -10,12 +10,15 @@ class UserService
 {
     public function addUserIfNotExists(Chat $chat, User $user): UserModel
     {
-        return UserModel::query()->firstOrCreate([
-            'chat_id' => $chat->id(),
-            'username' => $user->username(),
-            'first_name' => $user->firstName(),
-            'last_name' => $user->lastName(),
-        ]);
+        return UserModel::query()->updateOrCreate(
+            [
+                'username' => $user->username(),
+            ], [
+                'chat_id' => $chat->id(),
+                'first_name' => $user->firstName(),
+                'last_name' => $user->lastName(),
+            ]
+        );
     }
 
     public function getUserByChatId(string $chat_id): UserModel
