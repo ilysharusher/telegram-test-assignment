@@ -37,6 +37,6 @@ class TrelloController extends Controller
             return response()->json(['message' => 'Trello account successfully linked!']);
         }
 
-        return response()->json(['message' => 'Failed to link Trello account.'], 400);
+        return response()->json(['message' => 'Failed to link Trello account. Please replace # with & in the URL before token.']);
     }
 }
