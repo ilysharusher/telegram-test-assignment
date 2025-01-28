@@ -11,7 +11,7 @@ class TrelloWebhookService
         $listBefore = $action['data']['listBefore']['name'] ?? null;
         $listAfter = $action['data']['listAfter']['name'] ?? null;
 
-        if (($listBefore === 'In Progress' && $listAfter === 'Done') || ($listBefore === 'Done' && $listAfter === 'In Progress')) {
+        if ($listBefore && $listAfter) {
             $message = "Card <b>$cardName</b> moved from <b>$listBefore</b> to <b>$listAfter</b>";
 
             sendMessage($message);

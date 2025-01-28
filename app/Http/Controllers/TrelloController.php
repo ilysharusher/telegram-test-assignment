@@ -19,6 +19,6 @@ class TrelloController extends Controller
 
         $this->trelloWebhookService->handleCardMovement($data);
 
-        return response()->json(['status' => 'success']);
+        return response()->json();
     }
 }
