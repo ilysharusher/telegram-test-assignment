@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Telegram\Commands;
+namespace App\Http\Controllers;
 
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 
-class StartCommand extends WebhookHandler
+class TelegramController extends WebhookHandler
 {
     public function start(): void
     {

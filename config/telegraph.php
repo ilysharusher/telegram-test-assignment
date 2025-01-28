@@ -28,7 +28,7 @@ return [
          *
          * For reference, see https://docs.defstudio.it/telegraph/webhooks/overview
          */
-        'handler' => \App\Http\Telegram\Commands\StartCommand::class,
+        'handler' => \App\Http\Controllers\TelegramController::class,
 
         /*
          * Middleware to be applied to the webhook route
