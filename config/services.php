@@ -34,6 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'telegram' => [
+        'chat_id' => env('TELEGRAM_CHAT_ID'),
+    ],
     'trello' => [
         'key' => env('TRELLO_API_KEY'),
         'token' => env('TRELLO_API_TOKEN'),
