@@ -26,7 +26,7 @@ class MakeTrelloWebhook extends Command
      */
     public function handle(): int
     {
-        $callbackURL = config('services.trello.callback_url');
+        $callbackURL = config('services.trello.webhook_url');
         $idModel = config('services.trello.id_model');
         $apiKey = config('services.trello.key');
         $apiToken = config('services.trello.token');

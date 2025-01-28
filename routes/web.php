@@ -8,7 +8,9 @@ Route::get('/', static function () {
     return view('welcome');
 });
 
-Route::post('/trello/webhook', [TrelloController::class, 'handle'])
+Route::post('/trello/webhook', [TrelloController::class, 'handleWebhook'])
     ->withoutMiddleware(VerifyCsrfToken::class);
+
+Route::get('/trello/callback', [TrelloController::class, 'handleCallback']);
 
 Route::get('/trello/webhook/', static fn () => response()->json());

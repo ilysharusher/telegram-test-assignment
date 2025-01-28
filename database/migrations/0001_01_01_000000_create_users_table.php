@@ -17,6 +17,7 @@ return new class () extends Migration {
             $table->string('last_name')->nullable();
             $table->string('username')->unique();
             $table->string('chat_id')->unique();
+            $table->string('trello_id')->unique()->nullable();
 
             $table->timestamps();
         });

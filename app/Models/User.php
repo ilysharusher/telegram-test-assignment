@@ -11,5 +11,6 @@ class User extends Model
         'last_name',
         'username',
         'chat_id',
+        'trello_id',
     ];
 }

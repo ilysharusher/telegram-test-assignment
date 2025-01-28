@@ -41,6 +41,7 @@ return [
         'key' => env('TRELLO_API_KEY'),
         'token' => env('TRELLO_API_TOKEN'),
         'callback_url' => env('TRELLO_CALLBACK_URL'),
+        'webhook_url' => env('TRELLO_WEBHOOK_URL'),
         'id_model' => env('TRELLO_ID_MODEL'),
     ],
 ];
