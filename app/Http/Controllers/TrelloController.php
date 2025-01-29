@@ -7,6 +7,7 @@ use App\Services\Telegram\TrelloLinkService;
 use App\Services\Trello\TrelloWebhookService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TrelloController extends Controller
 {
@@ -25,10 +26,14 @@ class TrelloController extends Controller
         return response()->json();
     }
 
-    public function handleCallback(Request $request): JsonResponse
+    public function handleCallback(Request $request): JsonResponse|Response
     {
         $userId = $request->query('user_id');
         $trelloToken = $request->query('token');
+
+        if ($userId && !$trelloToken) {
+            return response()->view('trello.extract-token', ['userId' => $userId]);
+        }
 
         if ($userId && $trelloToken) {
             $user = User::query()->findOrFail($userId);
@@ -37,6 +42,6 @@ class TrelloController extends Controller
             return response()->json(['message' => 'Trello account successfully linked!']);
         }
 
-        return response()->json(['message' => 'Failed to link Trello account. Please replace # with & in the URL before token.']);
+        return response()->json(['message' => 'Failed to link Trello account.']);
     }
 }
