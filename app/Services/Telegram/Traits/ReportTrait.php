@@ -17,7 +17,7 @@ trait ReportTrait
                 $tasksCount = $this->getTrelloTasksCount($user->trello_id);
                 $report[] = "<b>{$user->username}</b>: {$tasksCount} task(s) in progress.";
             } else {
-                $report[] = "<b>{$user->username}</b>: Trello account not connected.";
+                $report[] = "<b>{$user->username}</b>: Trello account not connected. Please send /start command to connect your Trello account.";
             }
         }
 
