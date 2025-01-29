@@ -31,10 +31,6 @@ class TrelloController extends Controller
         $userId = $request->query('user_id');
         $trelloToken = $request->query('token');
 
-        if (!$userId) {
-            sendMessage('Please, send /start command again.');
-        }
-
         if ($userId && !$trelloToken) {
             return response()->view('trello.extract-token', ['userId' => $userId]);
         }

@@ -49,7 +49,13 @@ class TelegramController extends WebhookHandler
 
     public function report(): void
     {
-        $report = $this->generateGroupReport($this->chat->chat_id);
+        $chat_id = $this->chat->chat_id;
+
+        if (!$chat_id) {
+            sendMessage('Please, send /start command again.');
+        }
+
+        $report = $this->generateGroupReport($chat_id);
 
         $this->chat->html($report)->send();
     }
