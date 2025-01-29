@@ -21,7 +21,7 @@ class TrelloLinkService
         $query = http_build_query([
             'key' => $this->trelloApiKey,
             'name' => 'Telegram Bot Integration',
-            'expiration' => '1hour',
+            'expiration' => 'never',
             'response_type' => 'token',
             'scope' => 'read,write',
             'callback_method' => 'fragment',

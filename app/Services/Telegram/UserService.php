@@ -13,7 +13,8 @@ class UserService
         return UserModel::query()->updateOrCreate(
             [
                 'username' => $user->username(),
-            ], [
+            ],
+            [
                 'chat_id' => $chat->id(),
                 'first_name' => $user->firstName(),
                 'last_name' => $user->lastName(),
