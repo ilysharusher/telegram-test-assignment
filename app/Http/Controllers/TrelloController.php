@@ -39,6 +39,8 @@ class TrelloController extends Controller
             $user = User::query()->findOrFail($userId);
             $this->trelloLinkService->saveTrelloToken($user, $trelloToken);
 
+            sendMessage("Your Trello account has been successfully linked!\n\nYou can now send /report command to get your group report.");
+
             return response()->json(['message' => 'Trello account successfully linked!']);
         }
 
