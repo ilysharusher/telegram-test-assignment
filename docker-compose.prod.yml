@@ -35,3 +35,4 @@ services:
     container_name: app
 volumes:
   mysql_data:
+    name: mysql_data
